@@ -68,7 +68,9 @@ if(isMarried === 'yes') {
 } else {
     console.log(name+' is not married');
 }
-
+if(isMarried == 'yes') {
+    console.log('does not work');
+}
 
 isMarried = false;
 
@@ -79,12 +81,33 @@ if(isMarried) {
 }
 
 
+
 if(isMarried === age) {
     console.log('weird');
 }
 if(age === name) {
     console.log('weirder');
 }
+//no type coercion for ===
 if(age === ageString) {
     console.log('weirdest');
 }
+
+if(age == ageString) {
+    console.log('type coersion happened');
+}
+
+
+var job = 'teacher';
+
+switch (job) {
+    case 'teacher':
+        console.log('John is teacher');
+        break;
+    case 'driver':
+        console.log('john is driver');
+        break;
+    default:
+        console.log('John does something else');
+    }
+
