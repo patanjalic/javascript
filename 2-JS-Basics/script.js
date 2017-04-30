@@ -18,6 +18,8 @@ console.log(fullAge);
 
 //lecture variables continued
 
+/*
+
 var name = 'John';
 var age = 26;
 
@@ -44,3 +46,45 @@ var lastName = prompt('what is the last name? ');
 console.log(lastName);
 
 alert(name+age+job+married);
+*/
+
+
+//lecture on operators
+
+/*var ageJohn = 30;
+ageJohn++;
+console.log(ageJohn);
+console.log(++ageJohn);*/
+
+
+//lecture on if/else
+
+var name = 'John';
+var age = 26;
+var isMarried = 'no';
+var ageString = '26';
+if(isMarried === 'yes') {
+    console.log(name+' is married');
+} else {
+    console.log(name+' is not married');
+}
+
+
+isMarried = false;
+
+if(isMarried) {
+    console.log('yes');
+} else {
+    console.log('no');
+}
+
+
+if(isMarried === age) {
+    console.log('weird');
+}
+if(age === name) {
+    console.log('weirder');
+}
+if(age === ageString) {
+    console.log('weirdest');
+}
