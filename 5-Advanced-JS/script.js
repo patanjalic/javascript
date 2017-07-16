@@ -16,7 +16,7 @@ john.calculateAge();
 jane.calculateAge();
 console.log(john.lastName);
 console.log(jane.lastName);
-*/
+
 
 var personProto = {
     calculateAge: function() {
@@ -34,3 +34,21 @@ var jane = Object.create(personProto, {
     yearOfBirth: {value:1986},
     job: {value:'bikini model'}
 });
+
+*/
+
+var array = [1990,1992,2009,2014,1984];
+
+function calculateAges(array, fn) {
+    var arrRes = [];
+    for(var i=0;i<array.length;i++) {
+        arrRes.push(fn(array[i]));
+    }
+    return arrRes;
+}
+
+function calculateAge(el) {
+    return 2017 - el;
+}
+
+console.log(calculateAges(array,calculateAge));
