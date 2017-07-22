@@ -35,7 +35,7 @@ var jane = Object.create(personProto, {
     job: {value:'bikini model'}
 });
 
-*/
+
 
 var array = [1990,1992,2009,2014,1984];
 
@@ -52,3 +52,31 @@ function calculateAge(el) {
 }
 
 console.log(calculateAges(array,calculateAge));
+*/
+
+//functions returning function
+
+function interviewQuestions(job) {
+    if(job == 'designer') {
+        return function(name) {
+            console.log(name+'what is ux design?');
+        }
+        } else if(job == 'teacher') {
+            return function(name) {
+                console.log('what subject do you teach '+name+'?');
+            }
+        } else {
+            return function(name) {
+                console.log('what do you do? '+name);
+            }
+        }
+    }
+
+
+var teacherQuestions = interviewQuestions('teacher');
+teacherQuestions('kelly');
+var designerQuestions = interviewQuestions('designer');
+designerQuestions('brook');
+var defaultQuestions = interviewQuestions('plumber');
+defaultQuestions('keeley');
+interviewQuestions('teacher')('hazell');
