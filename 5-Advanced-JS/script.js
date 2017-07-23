@@ -52,7 +52,7 @@ function calculateAge(el) {
 }
 
 console.log(calculateAges(array,calculateAge));
-*/
+
 
 //functions returning function
 
@@ -80,3 +80,65 @@ designerQuestions('brook');
 var defaultQuestions = interviewQuestions('plumber');
 defaultQuestions('keeley');
 interviewQuestions('teacher')('hazell');
+
+
+//Immediately invoked function expressions
+
+(
+    function () {
+        var random = Math.random() * 10;
+        console.log(5 >= random );
+    }
+) ();
+
+(function (goodLuck) {
+    var random = Math.random() * 10;
+    console.log(5 >= random - goodLuck);
+}) (5);
+
+
+//closures
+
+function interviewQuestions(job) {
+    return function(name) {
+        if(job === 'designer') {
+            console.log(name+'what is ux design?');
+        } else if(job === 'teacher') {
+            console.log('what subject do you teach '+name);
+        } else {
+            console.log('what do you do? '+name);
+        }
+    }
+}
+
+interviewQuestions('teacher')('kelly');
+
+*/
+
+var john = {
+    name:'john',
+    job:'plumber',
+    age:26,
+    presentation: function(style, timeOfDay) {
+        if(style === 'formal') {
+            console.log('Good '+timeOfDay+' ladies and gentlemen '+'i am '+this.name+' i am a '+this.job+ ' i am '+this.age+' years old.');
+        } else if (style === 'informal') {
+            console.log(timeOfDay+' folks, whats up? '+'i am '+this.name+' i am a '+this.job+ ' i am '+this.age+' years old.');
+        }
+    }
+};
+
+john.presentation('formal','morning');
+
+var emily = {
+    name: 'emily',
+    job: 'model',
+    age: 25
+}
+
+var emilyFriendly = john.presentation.call(emily,'informal','evening');
+var emilyFormal = john.presentation.bind(emily,'formal','night');
+emilyFormal();
+var emilyFormal1 = john.presentation.bind(emily,'formal');
+emilyFormal1('morning');
+
