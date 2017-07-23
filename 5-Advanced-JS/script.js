@@ -113,7 +113,7 @@ function interviewQuestions(job) {
 
 interviewQuestions('teacher')('kelly');
 
-*/
+
 
 var john = {
     name:'john',
@@ -142,3 +142,29 @@ emilyFormal();
 var emilyFormal1 = john.presentation.bind(emily,'formal');
 emilyFormal1('morning');
 
+*/
+
+//coding challenge
+
+var Question = function() {
+
+}
+Question.prototype.askQuestion = function() {
+    var questions = ['which is the best programming language in the world?','who is the hottest in the world?','which video game was best ever?'];
+    var hints = [
+        ['java','javascript','c++'],
+        ['kelly brook','keeley hazell','kate upton'],
+        ['mario world','battle tank','half life']
+    ];
+    var answers = [1,3,2];
+    var random = Math.floor(Math.random() * questions.length);
+    console.log(questions[random]);
+    for(var i = 0; i < 3; i++) {
+        console.log(i+1+'. '+hints[random][i]);
+    }
+    var answer = prompt('answer');
+    console.log(answer);
+    alert(answer == answers[random]?'correct':'wrong');
+}
+var question = new Question();
+question.askQuestion();
