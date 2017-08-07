@@ -11,37 +11,42 @@ function init() {
     document.querySelector('.budget__expenses--percentage').textContent = '0%';
 }
 
-document.querySelector('.add__btn').addEventListener('click',function() {
-    console.log('add button clicked');
-    console.log(document.querySelector('.add__description').value);
-    console.log(document.querySelector('.add__value').value);
-});
-
 var budgetController = (function() {
-    var x = 23;
-    var add = function(a) {
-        return a+x;
-    }
 
-    return {
-        publicTest: function(a) {
-            var addition = add(a);
-            console.log(addition);
-            return addition;
-        }
-    }
 })();
 
 var UIController = (function() {
-    //ui controller code
+    var DOMStrings = {
+        addType: '.add__type',
+        addDescription: '.add__description',
+        addValue: '.add__value',
+        addButton: '.add__btn'
+    }
+    return {
+        getItem: function() {
+            return {
+                type:document.querySelector(DOMStrings.addType).value,
+                description:document.querySelector(DOMStrings.addDescription).value,
+                value:document.querySelector(DOMStrings.addValue).value
+            }
+        },
+        getDOMStrings: function() {
+            return DOMStrings;
+        }
+
+    }
 })();
 
 var controller = (function(budgetCtrl,UICtrl) {
-    var z = budgetCtrl.publicTest(6);
-    return {
-        anotherPublic: function() {
-            console.log(z);
-            return z;
-        }
+    var DOMs = UICtrl.getDOMStrings();
+    var ctrlAddItem = function() {
+        var input = UICtrl.getItem();
+        console.log(input);
     }
+    document.querySelector(DOMs.addButton).addEventListener('click',ctrlAddItem);
+    document.addEventListener('keypress', function(event) {
+        if(event.keyCode === 13) {
+            ctrlAddItem();
+        }
+    });
 })(budgetController,UIController);
