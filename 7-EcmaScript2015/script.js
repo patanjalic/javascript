@@ -15,7 +15,7 @@ function testScope6() {
         let name = 'john smith';
         const age = 20;
     }
-    console.log(name+' '+age);
+    console.log(name+' '+age); // will not work because let and const are block scoped, change scope
 }
 
 testScope6();
