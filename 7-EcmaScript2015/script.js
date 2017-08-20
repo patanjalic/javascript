@@ -1,4 +1,4 @@
-
+/*
 function testScope5() {
     console.log(name);
     if(true) {
@@ -20,3 +20,11 @@ function testScope6() {
 
 testScope6();
 
+*/
+
+function calculateAge(year) {
+    return 2017 - year;
+}
+let name = 'john smith';
+const yearOfBirth = 1990;
+console.log(`i am ${name} i am ${calculateAge(yearOfBirth)} years old`);
