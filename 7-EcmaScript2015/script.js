@@ -28,7 +28,7 @@ function calculateAge(year) {
 let name = 'john smith';
 const yearOfBirth = 1990;
 console.log(`i am ${name} i am ${calculateAge(yearOfBirth)} years old`);
-*/
+
 
 const years = ['1990','1991','1980','1969'];
 
@@ -43,3 +43,31 @@ var ages1 = years.map((el,index) => {
 });
 
 console.log(ages1);
+*/
+
+
+var box5 = {
+    color:'green',
+    position:1,
+    clickMe: function(){
+        //hack required here to access this object
+        var obj = this;
+        document.querySelector('.green').addEventListener('click',function() {
+            alert('color '+obj.color+' position '+obj.position);
+        });
+    }
+};
+//box5.clickMe();
+
+
+var box6 = {
+    color:'green',
+    position:1,
+    clickMe: function(){
+        //arrow function will have access to this object
+        document.querySelector('.green').addEventListener('click',() => {
+            alert('color '+this.color+' position '+this.position);
+        });
+    }
+};
+box6.clickMe();
