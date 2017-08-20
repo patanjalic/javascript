@@ -131,6 +131,11 @@ var UIController = (function() {
         container: '.container',
         expPercentageLabel: '.item__percentage'
     }
+    var nodeListForeach = function(list,callback) {
+                for(var i = 0; i < list.length; i++) {
+                    callback(list[i],i);
+                }
+            };
     return {
         getItem: function() {
             return {
@@ -185,11 +190,6 @@ var UIController = (function() {
         },
         displayPercentages: function(percentages) {
             var fields = document.querySelectorAll(DOMStrings.expPercentageLabel);
-            var nodeListForeach = function(list,callback) {
-                for(var i = 0; i < list.length; i++) {
-                    callback(list[i],i);
-                }
-            }
             nodeListForeach(fields,function(current,index) {
                 if(percentages[index] > 0) {
                     current.textContent = percentages[index]+'%';
@@ -197,6 +197,13 @@ var UIController = (function() {
                     current.textContent = '---';
                 }
             });
+        },
+        changedType: function() {
+            var fields = document.querySelectorAll(DOMStrings.addType+','+DOMStrings.addDescription+','+DOMStrings.addValue);
+            nodeListForeach(fields,function(curr){
+                curr.classList.toggle('red-focus');
+            });
+            document.querySelector(DOMStrings.addButton).classList.toggle('red');
         }
     }
 })();
@@ -211,6 +218,7 @@ var controller = (function(budgetCtrl,UICtrl) {
             }
         });
         document.querySelector(DOMs.container).addEventListener('click',ctrlDelItem);
+        document.querySelector(DOMs.addType).addEventListener('change',UICtrl.changedType);
     }
 
     var updateBudget = function() {
