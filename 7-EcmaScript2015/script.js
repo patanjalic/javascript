@@ -97,7 +97,7 @@ var john = new Person('bob');
 var friends6 = ['bob','jane'];
 console.log(john.myfriends6(friends6));
 
-*/
+
 
 //desctructuring
 
@@ -121,3 +121,26 @@ function calculateRetirement(age) {
 
 const [age2,retirement] = calculateRetirement(26);
 console.log(age2+' '+retirement);
+
+*/
+
+//arrays in es6
+
+const boxes = document.querySelectorAll('.box');
+
+var boxArray5 = Array.prototype.slice.call(boxes);
+
+/*boxArray5.forEach(function(cur){
+        cur.style.backgroundColor = 'dodgerblue';
+});*/
+
+Array.from(boxes).forEach((cur) =>{cur.style.backgroundColor = 'dodgerblue';});
+
+var boxArray6 = Array.from(boxes);
+
+for(const cur of boxArray6) {
+    if(cur.className === 'blue') {
+        continue;
+    }
+    cur.textContent = 'changed to blue';
+}
