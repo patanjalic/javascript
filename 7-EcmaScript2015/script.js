@@ -176,7 +176,7 @@ function isFullAge6(...years) {
 }
 isFullAge(1990,1995,1986,2005);
 isFullAge6(1990,1980,2005);
-*/
+
 
 //default parameters
 
@@ -188,3 +188,27 @@ function SmithPerson(firstName, lastName='Smith', nationality='American',age) {
 }
 
 var john = new SmithPerson('John',20);
+
+
+//maps
+
+
+var questions = new Map();
+questions.set(1,'one');
+questions.set(2,'two');
+questions.set(3,'three');
+questions.set(4,'four');
+questions.set('a','A');
+
+questions.forEach((value,key) => {
+    console.log(`key is ${key} value is ${value}`);
+});
+
+for(let [key,value] of questions.entries()){
+    if(typeof(key) === 'number') {
+        console.log(`key is ${key} value is ${value}`);
+    }
+}
+*/
+
+//classes
