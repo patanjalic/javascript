@@ -122,7 +122,7 @@ function calculateRetirement(age) {
 const [age2,retirement] = calculateRetirement(26);
 console.log(age2+' '+retirement);
 
-*/
+
 
 //arrays in es6
 
@@ -133,7 +133,7 @@ var boxArray5 = Array.prototype.slice.call(boxes);
 /*boxArray5.forEach(function(cur){
         cur.style.backgroundColor = 'dodgerblue';
 });*/
-
+/*
 Array.from(boxes).forEach((cur) =>{cur.style.backgroundColor = 'dodgerblue';});
 
 var boxArray6 = Array.from(boxes);
@@ -144,3 +144,15 @@ for(const cur of boxArray6) {
     }
     cur.textContent = 'changed to blue';
 }
+*/
+
+//spread operator
+
+var ages = [18,21,17,12];
+
+function calcAges(a,b,c,d) {
+    return a+b+c+d;
+}
+var sum = calcAges(...ages);
+console.log(sum);
+console.log(calcAges.apply(null,ages));
