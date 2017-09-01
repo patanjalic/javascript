@@ -144,7 +144,7 @@ for(const cur of boxArray6) {
     }
     cur.textContent = 'changed to blue';
 }
-*/
+
 
 //spread operator
 
@@ -156,3 +156,35 @@ function calcAges(a,b,c,d) {
 var sum = calcAges(...ages);
 console.log(sum);
 console.log(calcAges.apply(null,ages));
+
+
+//rest parameters
+
+function isFullAge() {
+    console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments);
+    argsArr.forEach(function(cur) {
+        console.log(2017 - cur >= 18);
+    });
+}
+
+function isFullAge6(...years) {
+    console.log(years);
+    years.forEach(cur => {
+        console.log(2017 - cur >= 18);
+    });
+}
+isFullAge(1990,1995,1986,2005);
+isFullAge6(1990,1980,2005);
+*/
+
+//default parameters
+
+function SmithPerson(firstName, lastName='Smith', nationality='American',age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.nationality = nationality;
+    this.age = age;
+}
+
+var john = new SmithPerson('John',20);
