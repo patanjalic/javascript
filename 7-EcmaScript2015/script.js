@@ -212,3 +212,18 @@ for(let [key,value] of questions.entries()){
 */
 
 //classes
+
+class Person {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    calculateAge() {
+        const age = new Date().getFullYear() - this.age;
+        console.log(age);
+    }
+}
+
+const john = new Person('john','smith',20);
