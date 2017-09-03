@@ -227,3 +227,22 @@ class Person {
 }
 
 const john = new Person('john','smith',20);
+
+
+class Athlete extends Person {
+    constructor(firstName,lastName,age,games,medals) {
+        super(firstName,lastName,age);
+        this.games = games;
+        this.medals = medals;
+    }
+    
+    wonMedal() {
+        this.medals++;
+        console.log(this.medals);
+    }
+}
+
+const ath = new Athlete('john','smith',1990,100,10);
+ath.wonMedal();
+ath.calculateAge();
+console.log(ath);
